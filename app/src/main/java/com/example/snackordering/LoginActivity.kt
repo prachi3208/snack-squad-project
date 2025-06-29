@@ -58,13 +58,14 @@ fun LoginScreen(context: Context, databaseHelper: UserDatabaseHelper) {
         verticalArrangement = Arrangement.Center
     ) {
 
-        Text(
-            fontSize = 36.sp,
-            fontWeight = FontWeight.ExtraBold,
-            fontFamily = FontFamily.Cursive,
-            color = Color.White,
-            text = "Login"
-        )
+       Text(
+    fontSize = 36.sp,
+    fontWeight = FontWeight.ExtraBold,
+    fontFamily = FontFamily.Cursive,
+    color = Color(0xFFFF9800), // 🟠 Orange color (Login Title)
+    text = "Login"
+)
+
         Spacer(modifier = Modifier.height(10.dp))
 
         TextField(
@@ -126,23 +127,22 @@ fun LoginScreen(context: Context, databaseHelper: UserDatabaseHelper) {
         ) {
             Text(text = "Login")
         }
-        Row {
-            TextButton(onClick = {context.startActivity(
-                Intent(
-                    context,
-                    MainActivity::class.java
-                )
-            )}
-            )
-            { Text(color = Color.White,text = "Sign up") }
-            TextButton(onClick = {
-            })
+       Row {
+    TextButton(onClick = {
+        context.startActivity(Intent(context, MainActivity::class.java))
+    }) {
+        Text(color = Color.Blue, text = "Sign up") // 🔵 Blue color
+    }
 
-            {
-                Spacer(modifier = Modifier.width(60.dp))
-                Text(color = Color.White,text = "Forget password?")
-            }
-        }
+    Spacer(modifier = Modifier.width(60.dp))
+
+    TextButton(onClick = {
+        // TODO: Handle forget password
+    }) {
+        Text(color = Color.Blue, text = "Forget password?") // 🔵 Blue color
+    }
+}
+
     }
 }
 private fun startMainPage(context: Context) {
